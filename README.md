@@ -65,3 +65,6 @@ Painéis móveis, layout local, testes, contexto de exemplos e schemas separados
 
 ## v0.6.7 — Track Forge
 Forja procedural de receitas com cinco famílias, sementes, geração IA Ollama/Groq e exemplos aprovados. Compila para WRTL 0.1 custom. [Manual](docs/track-forge.html).
+
+## v0.6.8 — Painéis e exemplos
+Painéis Extreme independentes e biblioteca integrada de 17 exemplos WRTL e cinco receitas Forge. [Manual](docs/panels-examples.html).
