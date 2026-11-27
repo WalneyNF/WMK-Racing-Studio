@@ -1,0 +1,9 @@
+{
+  "name": "Vertical Velocity",
+  "type": "wall",
+  "radius": 30,
+  "width": 18,
+  "bank": 80,
+  "accent": 4325268,
+  "scale": 1
+}

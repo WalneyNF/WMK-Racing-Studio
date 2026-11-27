@@ -35,3 +35,6 @@ O carregador lê os 37 presets JSON diretamente do disco via HTTP, sem duplicar 
 
 ## v0.6.0 experimental — Extreme Racing
 [Entrar no modo extremo](extreme/index.html) · [Manual técnico](docs/extreme-racing.html). Três pistas paramétricas, três veículos, looping de 360°, banking, pista côncava, turbo e corrida com bots. Física cinemática magnética separada do jogo clássico. Teste gráfico pendente.
+
+## v0.6.1 — Extreme Track Pack
+Nove pistas no modo extremo: três anteriores e seis novas (Twin Loop Inferno, Quantum Corkscrew, Helix Tower 7000, Solar Wave, Vertical Velocity e Cyber Intersection). Catálogo JSON externo, faixas com afastamento geométrico e polygon offset, suportes laterais com teste conservador de interseção, trilhos luminosos e terceira câmera. [Manual do pacote](docs/extreme-track-pack.html). Teste gráfico pendente.

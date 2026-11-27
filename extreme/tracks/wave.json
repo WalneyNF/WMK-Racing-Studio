@@ -1,0 +1,9 @@
+{
+  "name": "Solar Wave",
+  "type": "wave",
+  "radius": 30,
+  "width": 15,
+  "bank": 40,
+  "accent": 16764482,
+  "scale": 1
+}
