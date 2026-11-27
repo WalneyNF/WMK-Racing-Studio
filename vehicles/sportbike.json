@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "WMK Falcon 1000",
+  "model": "sportbike",
+  "color": 15216964,
+  "maxSpeed": 1.1111111111111112,
+  "accel": 0.0024,
+  "steerSpeed": 0.02,
+  "grip": 0.19,
+  "offroadSkill": 0.4,
+  "wheelbase": 1.45,
+  "massKg": 210,
+  "powerCV": 180,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Pulse AG",
+  "model": "hover",
+  "color": 1431529,
+  "maxSpeed": 1.35,
+  "accel": 0.003,
+  "steerSpeed": 0.025,
+  "grip": 0.18,
+  "offroadSkill": 0.8,
+  "wheelbase": 2.8,
+  "massKg": 750,
+  "powerCV": 850,
+  "drivetrain": "FWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

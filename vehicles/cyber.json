@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Cyber GT 7000",
+  "model": "cyber",
+  "color": 11564799,
+  "maxSpeed": 1.2,
+  "accel": 0.0025,
+  "steerSpeed": 0.025,
+  "grip": 0.18,
+  "offroadSkill": 0.8,
+  "wheelbase": 2.9,
+  "massKg": 1250,
+  "powerCV": 700,
+  "drivetrain": "FWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

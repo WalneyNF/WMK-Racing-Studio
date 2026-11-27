@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Drift S",
+  "model": "drift",
+  "color": 16347926,
+  "maxSpeed": 0.9722222222222222,
+  "accel": 0.0016666666666666668,
+  "steerSpeed": 0.025,
+  "grip": 0.09,
+  "offroadSkill": 0.6,
+  "wheelbase": 2.65,
+  "massKg": 1350,
+  "powerCV": 350,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

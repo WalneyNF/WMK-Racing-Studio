@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Kart Spark",
+  "model": "kart",
+  "color": 16238659,
+  "maxSpeed": 0.48,
+  "accel": 0.0028,
+  "steerSpeed": 0.025,
+  "grip": 0.18,
+  "offroadSkill": 0.8,
+  "wheelbase": 2,
+  "massKg": 500,
+  "powerCV": 80,
+  "drivetrain": "FWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

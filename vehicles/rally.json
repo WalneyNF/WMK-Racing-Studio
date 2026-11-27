@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Rally X",
+  "model": "rally",
+  "color": 165063,
+  "maxSpeed": 0.8796296296296297,
+  "accel": 0.0018055555555555555,
+  "steerSpeed": 0.025,
+  "grip": 0.16,
+  "offroadSkill": 0.92,
+  "wheelbase": 2.6,
+  "massKg": 1250,
+  "powerCV": 300,
+  "drivetrain": "AWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>WMK Racing Studio 3D — v0.5.1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logo/logo.webp">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/TransformControls.js"></script>
+</head>
+<body>
+
+    <div id="ui"><div id="start-lights" data-wmk-style="0"></div><div id="studio-menu" data-wmk-style="1"><img class="wmk-brand" src="assets/logo/logo.webp" alt="WMK Racing Studio"><strong>WMK v0.5.1</strong><select id="track-catalog"></select><button data-wmk-click="0">Abrir</button><button data-wmk-click="1">Editor</button><select id="panel-menu"><option value="">Painéis</option><option value="sidebar">Garagem</option><option value="editor-ui">Editor</option><option value="telemetry-hud">Telemetria</option></select><button data-wmk-click="2">Restaurar</button></div>
+        <!-- BARRA LATERAL: CARROS, PISTAS E MECÂNICA -->
+        <div id="sidebar" class="panel">
+            <h2>Garagem</h2>
+            <div class="btn-grid">
+                <button class="car-btn active" data-wmk-click="3">🏎️ Fórmula 1</button>
+                <button class="car-btn" data-wmk-click="4">🚙 Rally WRC</button>
+                <button class="car-btn" data-wmk-click="5">🔥 Drift Tuner</button>
+                <button class="car-btn" data-wmk-click="6">💪 Muscle V8</button>
+            </div>
+
+            <div class="btn-grid"><button class="car-btn" data-wmk-click="7">GT Sprint</button><button class="car-btn" data-wmk-click="8">Compact GT</button><button class="car-btn" data-wmk-click="9">Kart Spark</button><button class="car-btn" data-wmk-click="10">Titan Monster</button><button class="car-btn" data-wmk-click="11">Pulse AG</button><button class="car-btn" data-wmk-click="12">Cyber GT 7000</button><button class="car-btn" data-wmk-click="13">Falcon 1000</button><button class="car-btn" data-wmk-click="14">Dirt 450</button><button class="car-btn" data-wmk-click="15">Street 500</button><button data-wmk-click="16">Exportar carro</button><button data-wmk-click="17">Importar carro</button></div><input hidden type="file" id="vehicle-file" accept=".json" data-wmk-change="18"/><div id="vehicle-status"></div><label>Direção <select id="assist-mode"><option value="easy">Assistida</option><option value="sport">Esportiva</option><option value="sim">Simulação leve</option></select></label><button data-wmk-click="19">Câmera (V)</button></div><div id="environment" class="panel"><h2>Ambiente e pista</h2><select id="race-tracks"></select><button data-wmk-click="20">Abrir pista</button>
+            <div class="btn-grid" data-wmk-style="2">
+                <button class="env-btn active" data-wmk-click="21">🏁 Asfalto</button>
+                <button class="env-btn" data-wmk-click="22">🌧️ Lama</button>
+                <button class="env-btn" data-wmk-click="23">🌃 Neon</button>
+            </div>
+
+            </div><div id="tuning-panel" class="panel"><h2>Ajuste fino</h2><div class="slider-group"><label>Sensibilidade <output id="sens-out">55%</output></label><input id="sensitivity" type="range" min="15" max="100" value="55" data-wmk-input="24"></div><div class="slider-group"><label>Tempo de resposta <output id="response-out">0.45 s</output></label><input id="response" type="range" min="15" max="100" value="45" data-wmk-input="25"></div><label><input id="curve-brake" type="checkbox" checked> Limitar velocidade ao virar</label>
+            <div class="slider-group">
+                <label><span>Retenção do volante:</span> <span id="val-assist">Recomendado</span></label>
+                <input type="range" id="sl-assist" min="0.70" max="0.94" step="0.02" value="0.86" data-wmk-input="26">
+            </div>
+            <div class="slider-group">
+                <label><span>Velocidade Máx:</span> <span id="val-speed"></span></label>
+                <input type="range" id="sl-speed" min="0.3" max="1.4" step="0.05" data-wmk-input="27">
+            </div>
+            <div class="slider-group">
+                <label><span>Potência Motor:</span> <span id="val-accel"></span></label>
+                <input type="range" id="sl-accel" min="0.0005" max="0.006" step="0.0001" data-wmk-input="28">
+            </div>
+            <div class="slider-group">
+                <label><span>Resposta do volante:</span> <span id="val-steer"></span></label>
+                <input type="range" id="sl-steer" min="0.008" max="0.05" step="0.002" data-wmk-input="29">
+            </div>
+            <div class="slider-group">
+                <label><span>Aderência Pneu (Grip):</span> <span id="val-grip"></span></label>
+                <input type="range" id="sl-grip" min="0.02" max="0.25" step="0.01" data-wmk-input="30">
+            </div>
+
+            <button data-wmk-click="31" data-wmk-style="3">🔄 Voltar Carro para Largada (R)</button>
+            <button class="btn-success" data-wmk-click="32" data-wmk-style="4">🛠️ ABRIR EDITOR 3D (RAMPAS/CURVAS)</button>
+        </div>
+
+        <!-- PAINEL DO EDITOR 3D -->
+        <div id="editor-ui" class="panel">
+            <h2>Studio Editor 3D</h2><div class="btn-grid"><button data-wmk-click="33">Exportar JSON</button><button data-wmk-click="34">Importar JSON</button></div><input hidden id="track-file" type="file" accept=".json" data-wmk-change="35"><div id="editor-status"></div>
+            <p data-wmk-style="5">
+                • <b>Seta Verde (Y):</b> Puxe para cima para criar <b>Pontes, Rampas e Montanhas!</b><br>
+                • <b>Setas Vermelha/Azul:</b> Movem a curva.<br>
+                • <b>Duplo Clique no chão:</b> Cria ponto novo.
+            </p>
+            <button data-wmk-click="36">➕ Inserir Ponto na Curva</button>
+            <button data-wmk-click="37">⛰️ Virar Rampa / Ponte (+Altura)</button>
+            <button data-wmk-click="38">📏 Achatar Toda a Pista (Zerar Altura)</button>
+            <button class="btn-danger" data-wmk-click="39">🗑️ Deletar Ponto Selecionado</button>
+            
+            </div><div id="editor-props" class="panel"><h2>Cenário e largura</h2><select id="editor-tracks"></select><button data-wmk-click="40">Abrir pista no editor</button><button data-wmk-click="41">Duplicar pista / exportar cópia</button><button data-wmk-click="42">Salvar pista no navegador</button><button data-wmk-click="43">Abrir pista salva</button><button data-wmk-click="44">Mover objeto</button><button data-wmk-click="45">Rotacionar objeto</button>
+            <div class="slider-group">
+                <label><span>Largura do Asfalto/Terra:</span> <span id="val-width">16m</span></label>
+                <input type="range" id="sl-width" min="10" max="28" step="1" value="22" data-wmk-input="46">
+            </div>
+            <input id="track-name" value="Circuito Escola" maxlength="80" data-wmk-style="6"/><div class="btn-grid"><button data-wmk-click="47">Escola</button><button data-wmk-click="48">Serra</button><button data-wmk-click="49">Oval neon</button><button data-wmk-click="50">Inverter sentido</button><button data-wmk-click="51">Baixar 2m</button><button data-wmk-click="52">Subir 2m</button><button data-wmk-click="53">Barreira</button><button data-wmk-click="54">Cone</button><button data-wmk-click="55">Arquibancada</button><button data-wmk-click="56">Excluir objeto</button></div><div id="track-info"></div><button data-wmk-click="57">🌲 Gerar Árvores, Pedras e Cenário</button>
+            <button class="btn-success" data-wmk-click="58" data-wmk-style="7">🏁 TESTAR PISTA AGORA!</button>
+        </div>
+
+        <div id="race-panel" class="panel"><small>Walney Moreira Klein — walneyk@hotmail.com</small><label>Voltas <input id="race-laps" type="number" min="1" max="20" value="3" data-wmk-style="8"></label><br><label>Rivais <select id="race-bots"><option>0</option><option>3</option><option selected>5</option><option>7</option></select></label><br><label>IA <select id="race-difficulty"><option value=".65">Fácil</option><option value=".82" selected>Normal</option><option value="1">Difícil</option></select></label><button class="btn-success" data-wmk-click="59">Iniciar corrida</button><div id="race-ranking" data-wmk-style="9"></div><div id="jump-score" data-wmk-style="10">Pontos: 0</div><div id="race-time">Treino livre</div><div id="race-status"></div><button data-wmk-click="60">Reiniciar (R)</button></div><div id="map-panel" class="panel"><canvas id="mini-map" width="220" height="150"></canvas></div><!-- TELEMETRIA E CONTROLES NA TELA -->
+        <div id="telemetry-hud" class="panel">
+            <!-- Volante -->
+            <div class="steer-box">
+                <div id="visual-wheel"></div>
+                <div data-wmk-style="11">VOLANTE (<span id="steer-deg">0°</span>)</div>
+            </div>
+
+            <!-- Pedais -->
+            <div class="pedals-box">
+                <div class="pedal-wrap">
+                    <div class="pedal-bg"><div id="bar-throttle"></div></div>
+                    <span data-wmk-style="12">W</span>
+                </div>
+                <div class="pedal-wrap">
+                    <div class="pedal-bg"><div id="bar-brake"></div></div>
+                    <span data-wmk-style="13">S</span>
+                </div>
+                <div class="pedal-wrap">
+                    <div class="pedal-bg"><div id="bar-handbrake"></div></div>
+                    <span data-wmk-style="14">ESP</span>
+                </div>
+            </div>
+
+            <!-- Velocímetro, Marcha e RPM -->
+            <div class="speed-box">
+                <div id="rpm-container"><div id="rpm-bar"></div></div>
+                <div class="speed-row">
+                    <div id="gear-display">N</div>
+                    <div>
+                        <span id="speed-display">0</span>
+                        <span class="unit">KM/H</span>
+                    </div>
+                </div>
+                <div id="surface-badge">NO ASFALTO (100% GRIP)</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/boot.js"></script>
+</body>
+</html>

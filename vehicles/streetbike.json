@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "WMK Street 500",
+  "model": "streetbike",
+  "color": 2543069,
+  "maxSpeed": 0.7175925925925926,
+  "accel": 0.0018,
+  "steerSpeed": 0.02,
+  "grip": 0.19,
+  "offroadSkill": 0.55,
+  "wheelbase": 1.42,
+  "massKg": 190,
+  "powerCV": 65,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

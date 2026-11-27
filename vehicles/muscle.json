@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Muscle V8",
+  "model": "muscle",
+  "color": 5195493,
+  "maxSpeed": 1.0185185185185186,
+  "accel": 0.0015277777777777779,
+  "steerSpeed": 0.025,
+  "grip": 0.14,
+  "offroadSkill": 0.55,
+  "wheelbase": 2.85,
+  "massKg": 1700,
+  "powerCV": 420,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

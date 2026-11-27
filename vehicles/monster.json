@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "Titan Monster",
+  "model": "monster",
+  "color": 4436843,
+  "maxSpeed": 0.62,
+  "accel": 0.0018,
+  "steerSpeed": 0.025,
+  "grip": 0.18,
+  "offroadSkill": 0.8,
+  "wheelbase": 3.6,
+  "massKg": 2900,
+  "powerCV": 650,
+  "drivetrain": "FWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "GT Sprint",
+  "model": "gt",
+  "color": 1424544,
+  "maxSpeed": 1.1342592592592593,
+  "accel": 0.0019444444444444444,
+  "steerSpeed": 0.025,
+  "grip": 0.18,
+  "offroadSkill": 0.5,
+  "wheelbase": 2.75,
+  "massKg": 1400,
+  "powerCV": 510,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "WMK Dirt 450",
+  "model": "motocross",
+  "color": 16098594,
+  "maxSpeed": 0.5555555555555556,
+  "accel": 0.0018,
+  "steerSpeed": 0.02,
+  "grip": 0.17,
+  "offroadSkill": 0.95,
+  "wheelbase": 1.48,
+  "massKg": 115,
+  "powerCV": 55,
+  "drivetrain": "RWD",
+  "brakeMS2": 8,
+  "steerReturn": 0.86
+}
