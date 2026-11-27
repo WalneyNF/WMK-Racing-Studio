@@ -13,3 +13,6 @@
 
 ## Track Forge 0.1 — extensão experimental
 Receitas independentes compiladas para custom WRTL 0.1; não altera o contrato WRTL.
+
+## 0.1 — correção de normalização (2026-11-27)
+- radius inválido em tipos que não o utilizam recebe 35 durante normalização IA, com aviso. width e raios de loop/double continuam estritos. Instruções específicas para mototube.
