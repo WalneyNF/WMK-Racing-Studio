@@ -41,3 +41,6 @@ Nove pistas no modo extremo: três anteriores e seis novas (Twin Loop Inferno, Q
 
 ## v0.6.2 — Extreme Track Builder
 12 circuitos extremos, zoom e câmera orbital, edição XYZ por pontos, cópias JSON, desfazer/refazer e torções. [Manual](docs/extreme-builder.html). Teste gráfico pendente.
+
+## v0.6.3 — Gravity Moto
+Sete circuitos e cinco motos adicionais, túnel circular pilotável em 360 graus, cristais, energia e pontuação por pilotagem invertida. [Manual](docs/gravity-moto.html). Teste gráfico pendente.

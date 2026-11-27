@@ -10,5 +10,12 @@
   "figure8",
   "orbital",
   "dragon",
-  "reactor"
+  "reactor",
+  "moto-loop",
+  "moto-double",
+  "moto-city",
+  "moto-tube",
+  "moto-wall",
+  "moto-tunnel",
+  "moto-tower"
 ]
