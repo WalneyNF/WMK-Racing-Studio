@@ -38,3 +38,6 @@ O carregador lê os 37 presets JSON diretamente do disco via HTTP, sem duplicar 
 
 ## v0.6.1 — Extreme Track Pack
 Nove pistas no modo extremo: três anteriores e seis novas (Twin Loop Inferno, Quantum Corkscrew, Helix Tower 7000, Solar Wave, Vertical Velocity e Cyber Intersection). Catálogo JSON externo, faixas com afastamento geométrico e polygon offset, suportes laterais com teste conservador de interseção, trilhos luminosos e terceira câmera. [Manual do pacote](docs/extreme-track-pack.html). Teste gráfico pendente.
+
+## v0.6.2 — Extreme Track Builder
+12 circuitos extremos, zoom e câmera orbital, edição XYZ por pontos, cópias JSON, desfazer/refazer e torções. [Manual](docs/extreme-builder.html). Teste gráfico pendente.

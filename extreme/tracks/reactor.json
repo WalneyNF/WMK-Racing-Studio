@@ -1,0 +1,9 @@
+{
+  "name": "Quantum Reactor X",
+  "type": "reactor",
+  "radius": 35,
+  "scale": 1,
+  "width": 16,
+  "bank": 65,
+  "accent": 11033343
+}
