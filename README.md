@@ -53,3 +53,6 @@ Quatro novas motos com carenagens por seções, rodas largas, anéis luminosos e
 - [Geometria procedural](docs/geometria-pistas.html)
 - [Física magnética](docs/fisica-magnetica.html)
 - [Laboratório e exercícios](docs/laboratorio-pistas.html)
+
+## v0.6.5 — AI Track Lab
+[Laboratório](ai/index.html) · [Manual IA](docs/ai-track-lab.html) · [Veículos e motores](docs/veiculos-motores.html) · [Atlas de pistas](docs/catalogo-pistas.html). Execute `python ai/server.py` e abra http://127.0.0.1:8768/ai/. Integrações Ollama/Groq experimentais; sem testes reais de provedor.

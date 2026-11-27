@@ -1,0 +1,10 @@
+'use strict';const $=id=>document.getElementById(id),example={"name":"Neon AI Loop","type":"double","radius":35,"scale":1,"width":16,"bank":0,"accent":65535};
+let pending=null;function status(s){$('status').textContent=s}
+function apply(){const c=WRTL.validate(JSON.parse($('json').value));pending=c;$('preview').contentWindow.postMessage({type:'wmk-track',track:c},location.origin);status('JSON validado; aguardando motor 3D.');return c}
+$('provider').onchange=()=>$('model').value=$('provider').value==='ollama'?'qwen3:1.7b':'openai/gpt-oss-20b';
+$('example').onclick=()=>{$('json').value=JSON.stringify(example,null,2);try{apply()}catch(e){status(e.message)}};
+$('validate').onclick=()=>{try{apply()}catch(e){status(e.message)}};
+$('export').onclick=()=>{try{const c=WRTL.validate(JSON.parse($('json').value)),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(c,null,2)],{type:'application/json'}));a.download='wmk-ai-track.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){status(e.message)}};
+$('generate').onclick=async()=>{const b=$('generate');b.disabled=true;status('Consultando provedor...');try{const r=await fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider:$('provider').value,model:$('model').value,prompt:$('prompt').value})});const d=await r.json();if(!r.ok)throw Error(d.error||'HTTP '+r.status);$('json').value=JSON.stringify(d.track,null,2);apply()}catch(e){status('Falha: '+e.message+' — para IA, inicie python ai/server.py')}finally{b.disabled=false}};
+window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('preview').contentWindow)return;if(e.data?.type==='wmk-ready'&&pending)e.source.postMessage({type:'wmk-track',track:pending},location.origin);if(e.data?.type==='wmk-result')status(e.data.ok?'Pista construída no motor Extreme.':e.data.error)});
+$('json').value=JSON.stringify(example,null,2);pending=example;

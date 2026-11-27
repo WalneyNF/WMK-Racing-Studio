@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "type",
+    "radius",
+    "scale",
+    "width",
+    "bank",
+    "accent"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "type": {
+      "enum": [
+        "loop",
+        "double",
+        "sky",
+        "bowl",
+        "corkscrew",
+        "helix",
+        "wave",
+        "wall",
+        "figure8",
+        "orbital",
+        "dragon",
+        "reactor",
+        "mototower",
+        "motocity",
+        "mototube",
+        "motowall",
+        "custom"
+      ]
+    },
+    "radius": {
+      "type": "number",
+      "minimum": 15,
+      "maximum": 55
+    },
+    "scale": {
+      "type": "number",
+      "minimum": 0.7,
+      "maximum": 1.5
+    },
+    "width": {
+      "type": "number",
+      "minimum": 8,
+      "maximum": 40
+    },
+    "bank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 80
+    },
+    "accent": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16777215
+    },
+    "twists": {
+      "type": "integer",
+      "minimum": -8,
+      "maximum": 8
+    },
+    "points": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 320,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "number",
+          "minimum": -1500,
+          "maximum": 1500
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
