@@ -59,3 +59,6 @@ Quatro novas motos com carenagens por seções, rodas largas, anéis luminosos e
 
 ## v0.6.6 — AI Workspace
 Painéis móveis, layout local, testes, contexto de exemplos e schemas separados. [Manual](docs/ai-workspace.html).
+
+## Manual oficial WRTL 0.1
+[Manual e laboratório de sintaxe](docs/wrtl-manual.html) · [17 exemplos JSON](ai/examples/wrtl) · [Histórico da linguagem](ai/WRTL-CHANGELOG.md).

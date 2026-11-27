@@ -1,0 +1,9 @@
+{
+  "name": "WRTL loop",
+  "type": "loop",
+  "radius": 35,
+  "scale": 1,
+  "width": 16,
+  "bank": 0,
+  "accent": 65535
+}

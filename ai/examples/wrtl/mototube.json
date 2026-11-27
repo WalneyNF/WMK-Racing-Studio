@@ -1,0 +1,9 @@
+{
+  "name": "WRTL mototube",
+  "type": "mototube",
+  "radius": 35,
+  "scale": 1,
+  "width": 24,
+  "bank": 0,
+  "accent": 65535
+}
