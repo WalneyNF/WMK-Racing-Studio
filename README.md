@@ -56,3 +56,6 @@ Quatro novas motos com carenagens por seções, rodas largas, anéis luminosos e
 
 ## v0.6.5 — AI Track Lab
 [Laboratório](ai/index.html) · [Manual IA](docs/ai-track-lab.html) · [Veículos e motores](docs/veiculos-motores.html) · [Atlas de pistas](docs/catalogo-pistas.html). Execute `python ai/server.py` e abra http://127.0.0.1:8768/ai/. Integrações Ollama/Groq experimentais; sem testes reais de provedor.
+
+## v0.6.6 — AI Workspace
+Painéis móveis, layout local, testes, contexto de exemplos e schemas separados. [Manual](docs/ai-workspace.html).

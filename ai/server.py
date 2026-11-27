@@ -18,10 +18,23 @@ class Handler(SimpleHTTPRequestHandler):
             if not 0<size<=16000: raise ValueError('Tamanho inválido')
             d=json.loads(self.rfile.read(size)); provider=d['provider']; model=d['model']; prompt=d['prompt']
             if not isinstance(model,str) or not 0<len(model)<=150 or not isinstance(prompt,str) or not 0<len(prompt)<=6000: raise ValueError('Modelo ou prompt inválido')
-            messages=[{'role':'system','content':SYSTEM+'\nSchema: '+json.dumps(SCHEMA)},{'role':'user','content':prompt}]
+            mode=d.get('mode','preset')
+            if mode not in ('preset','custom'): raise ValueError('Modo inválido')
+            schema=json.loads(json.dumps(SCHEMA))
+            schema.pop('allOf',None)
+            if mode=='preset':
+                schema['properties']['type']['enum'].remove('custom')
+                for field in ('points','twists'): schema['properties'].pop(field,None)
+            else:
+                schema['properties']['type']={'type':'string','enum':['custom']}
+                schema['required'].append('points')
+            context=d.get('context','')
+            examples=d.get('examples',[])
+            if not isinstance(context,str) or not isinstance(examples,list): raise ValueError('Contexto inválido')
+            messages=[{'role':'system','content':SYSTEM+'\nModo obrigatório: '+mode+'\nSchema: '+json.dumps(schema)+'\nInstruções extras: '+context[:2000]+'\nExemplos aprovados: '+json.dumps(examples[-5:],ensure_ascii=False)[:6000]},{'role':'user','content':prompt}]
             headers={'Content-Type':'application/json'}
             if provider=='ollama':
-                url='http://127.0.0.1:11434/api/chat'; payload={'model':model,'messages':messages,'stream':False,'format':SCHEMA,'options':{'temperature':0.3}}
+                url='http://127.0.0.1:11434/api/chat'; payload={'model':model,'messages':messages,'stream':False,'format':schema,'options':{'temperature':0.1,'num_predict':2048}}
             elif provider=='groq':
                 key=os.environ.get('GROQ_API_KEY')
                 if not key: raise ValueError('Defina GROQ_API_KEY no terminal antes de iniciar')
