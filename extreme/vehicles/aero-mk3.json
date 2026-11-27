@@ -1,0 +1,12 @@
+{
+  "name": "Aero MK III X9000",
+  "type": "hoverbike",
+  "design": "aero",
+  "color": 12174548,
+  "glow": 3497471,
+  "top": 116,
+  "accel": 14,
+  "wheelRadius": 0.52,
+  "tireWidth": 0.4,
+  "wheelbase": 2.8
+}

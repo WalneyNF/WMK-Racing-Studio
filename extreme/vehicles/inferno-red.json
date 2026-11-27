@@ -1,0 +1,12 @@
+{
+  "name": "Inferno Redline X",
+  "type": "lightbike",
+  "design": "inferno",
+  "color": 1382432,
+  "glow": 16719904,
+  "top": 112,
+  "accel": 13,
+  "wheelRadius": 0.74,
+  "tireWidth": 0.58,
+  "wheelbase": 3.05
+}

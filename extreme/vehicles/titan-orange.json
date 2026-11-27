@@ -1,0 +1,12 @@
+{
+  "name": "Titan Ember X",
+  "type": "lightbike",
+  "design": "titan",
+  "color": 2439744,
+  "glow": 16741401,
+  "top": 98,
+  "accel": 12,
+  "wheelRadius": 0.76,
+  "tireWidth": 0.67,
+  "wheelbase": 2.95
+}

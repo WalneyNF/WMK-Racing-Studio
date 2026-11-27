@@ -44,3 +44,6 @@ Nove pistas no modo extremo: três anteriores e seis novas (Twin Loop Inferno, Q
 
 ## v0.6.3 — Gravity Moto
 Sete circuitos e cinco motos adicionais, túnel circular pilotável em 360 graus, cristais, energia e pontuação por pilotagem invertida. [Manual](docs/gravity-moto.html). Teste gráfico pendente.
+
+## v0.6.4 — Cyber Bikes
+Quatro novas motos com carenagens por seções, rodas largas, anéis luminosos e propulsores. [Manual](docs/cyber-bikes.html). Teste gráfico pendente.
