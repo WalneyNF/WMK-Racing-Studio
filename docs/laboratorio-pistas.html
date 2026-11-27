@@ -1,0 +1,42 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04 — Laboratório e exercícios</title><style>:root{color-scheme:dark}body{margin:0;background:#0b1420;color:#e4edf6;font:16px/1.7 system-ui}main{max-width:960px;margin:auto;padding:28px}header{display:flex;align-items:center;gap:24px;border-bottom:1px solid #334a60;padding-bottom:18px}header img{width:110px}h1,h2{line-height:1.25;color:#63dff2}a{color:#72dff5}nav{display:flex;flex-wrap:wrap;gap:15px;margin:20px 0}pre{overflow:auto;background:#07101b;padding:16px;border-left:3px solid #20b7d0;border-radius:6px}svg{max-width:100%;height:auto;background:#101e2d;border-radius:8px}footer{border-top:1px solid #334a60;margin-top:35px;padding-top:16px;color:#a1b5c8}.note{border-left:3px solid #f3ad49;padding:8px 15px;background:#202433}label{display:block;margin:12px 0}</style></head><body><main><header><img src="../assets/logo/logo.webp" alt="WMK"><div><small>WMK RACING ACADEMY · 0.6.4</small><h1>04 — Laboratório e exercícios</h1></div></header><nav><a href="conceitos-pistas.html">Fundamentos</a><a href="geometria-pistas.html">Geometria procedural</a><a href="fisica-magnetica.html">Física magnética</a><a href="laboratorio-pistas.html">Laboratório e exercícios</a><a href="../extreme/index.html">Jogar</a></nav><h2>Experimento: raio do looping</h2><p>Modelo circular idealizado, sem spline, retorno ou deslocamento lateral.</p><label>Raio <input id="radius" type="range" min="15" max="55" value="35"> <output id="r"></output></label><svg viewBox="0 0 600 300" role="img" aria-label="Looping paramétrico"><path id="loop" fill="none" stroke="#21d8fa" stroke-width="12"/><path d="M25 270H575" stroke="#536b80" stroke-width="2"/><text id="stats" x="320" y="45" fill="white" font-size="14"/></svg><script>const r=document.getElementById('radius');function draw(){const R=+r.value,rr=R*2.1;document.getElementById('r').textContent=R+' m';document.getElementById('loop').setAttribute('d','M25 260H200A'+rr+' '+rr+' 0 1 0 199.99 260H575');document.getElementById('stats').textContent='Altura: '+2*R+' m | arco: '+(2*Math.PI*R).toFixed(1)+' m'}r.addEventListener('input',draw);draw();</script><h2>JSON compatível</h2><pre><code>{
+  "name": "Laboratório de ondas",
+  "type": "custom",
+  "radius": 35,
+  "scale": 1,
+  "width": 14,
+  "bank": 35,
+  "accent": 65535,
+  "twists": 1,
+  "points": [
+    [
+      0,
+      5,
+      -120
+    ],
+    [
+      0,
+      20,
+      0
+    ],
+    [
+      0,
+      50,
+      120
+    ],
+    [
+      120,
+      60,
+      150
+    ],
+    [
+      200,
+      20,
+      0
+    ],
+    [
+      120,
+      5,
+      -150
+    ]
+  ]
+}</code></pre><p>Limites atuais: width 8–40, radius 15–55, scale 0,7–1,5, bank 0–80, 4–320 pontos custom, até oito torções inteiras por sentido. Coordenadas limitadas a ±1500, Y mínimo 2, distância consecutiva mínima 0,5 m. Escala multiplica a trajetória, não a largura.</p><h2>Exercícios</h2><ol><li>Duplique Moto Loop City e compare raios 20 e 45.</li><li>Crie uma pista custom com seis pontos e altere a altura de um deles.</li><li>Compare zero, uma e duas torções; observe a câmera.</li><li>Importe Quantum Moto Tube e altere width; compare o deslocamento até o teto.</li><li>Adicione um preset e registre seu nome em catalog.json.</li><li>Implemente diagnóstico de proximidade entre segmentos não adjacentes.</li></ol><h2>Testes manuais propostos</h2><ul><li>Carregar todos os presets sem erro no console.</li><li>Completar volta e verificar a emenda.</li><li>Pilotar no teto, chão e paredes do túnel.</li><li>Disputar três voltas com sete bots.</li><li>Testar turbo e coleta de cristais.</li><li>Exportar e reimportar uma pista custom.</li></ul><p class="note">A conversão de tubo para custom perde a seção circular. Ondulações não garantem encaixe modular. Os exercícios não são testes já executados.</p><h2>IA futura</h2><p>Um modelo pode gerar JSON custom, validado pelo motor, sem executar JavaScript arbitrário. Provedores e WRTL modular continuam pendentes.</p><footer>Walney Moreira Klein — walneyk@hotmail.com · MIT · Base técnica: <a href="https://github.com/WalneyNF/WMK-Racing-Studio/commit/f51ad6ec1c67dbfa0ba890db1355b619e5b05062">f51ad6e</a></footer></main></body></html>

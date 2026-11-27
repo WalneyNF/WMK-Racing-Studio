@@ -47,3 +47,9 @@ Sete circuitos e cinco motos adicionais, túnel circular pilotável em 360 graus
 
 ## v0.6.4 — Cyber Bikes
 Quatro novas motos com carenagens por seções, rodas largas, anéis luminosos e propulsores. [Manual](docs/cyber-bikes.html). Teste gráfico pendente.
+
+## WMK Racing Academy — conceitos de construção de pistas
+- [Fundamentos](docs/conceitos-pistas.html)
+- [Geometria procedural](docs/geometria-pistas.html)
+- [Física magnética](docs/fisica-magnetica.html)
+- [Laboratório e exercícios](docs/laboratorio-pistas.html)
