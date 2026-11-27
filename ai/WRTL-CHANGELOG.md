@@ -10,3 +10,6 @@
 - 0.2: módulos e compilador.
 - 0.3: objetos e diagnóstico geométrico.
 - 0.4: receitas e migração de projetos.
+
+## Track Forge 0.1 — extensão experimental
+Receitas independentes compiladas para custom WRTL 0.1; não altera o contrato WRTL.

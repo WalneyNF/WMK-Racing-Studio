@@ -19,19 +19,21 @@ class Handler(SimpleHTTPRequestHandler):
             d=json.loads(self.rfile.read(size)); provider=d['provider']; model=d['model']; prompt=d['prompt']
             if not isinstance(model,str) or not 0<len(model)<=150 or not isinstance(prompt,str) or not 0<len(prompt)<=6000: raise ValueError('Modelo ou prompt inválido')
             mode=d.get('mode','preset')
-            if mode not in ('preset','custom'): raise ValueError('Modo inválido')
+            if mode not in ('preset','custom','forge'): raise ValueError('Modo inválido')
             schema=json.loads(json.dumps(SCHEMA))
             schema.pop('allOf',None)
             if mode=='preset':
                 schema['properties']['type']['enum'].remove('custom')
                 for field in ('points','twists'): schema['properties'].pop(field,None)
-            else:
+            elif mode=='custom':
                 schema['properties']['type']={'type':'string','enum':['custom']}
                 schema['required'].append('points')
+            else:
+                schema=json.loads((ROOT/'ai'/'forge.schema.json').read_text(encoding='utf-8'))
             context=d.get('context','')
             examples=d.get('examples',[])
             if not isinstance(context,str) or not isinstance(examples,list): raise ValueError('Contexto inválido')
-            messages=[{'role':'system','content':SYSTEM+'\nModo obrigatório: '+mode+'\nSchema: '+json.dumps(schema)+'\nInstruções extras: '+context[:2000]+'\nExemplos aprovados: '+json.dumps(examples[-5:],ensure_ascii=False)[:6000]},{'role':'user','content':prompt}]
+            messages=[{'role':'system','content':(SYSTEM if mode!='forge' else (ROOT/'ai'/'forge-knowledge.txt').read_text(encoding='utf-8'))+'\nModo obrigatório: '+mode+'\nSchema: '+json.dumps(schema)+'\nInstruções extras: '+context[:2000]+'\nExemplos aprovados: '+json.dumps(examples[-5:],ensure_ascii=False)[:6000]},{'role':'user','content':prompt}]
             headers={'Content-Type':'application/json'}
             if provider=='ollama':
                 url='http://127.0.0.1:11434/api/chat'; payload={'model':model,'messages':messages,'stream':False,'format':schema,'options':{'temperature':0.1,'num_predict':2048}}

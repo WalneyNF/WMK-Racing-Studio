@@ -62,3 +62,6 @@ Painéis móveis, layout local, testes, contexto de exemplos e schemas separados
 
 ## Manual oficial WRTL 0.1
 [Manual e laboratório de sintaxe](docs/wrtl-manual.html) · [17 exemplos JSON](ai/examples/wrtl) · [Histórico da linguagem](ai/WRTL-CHANGELOG.md).
+
+## v0.6.7 — Track Forge
+Forja procedural de receitas com cinco famílias, sementes, geração IA Ollama/Groq e exemplos aprovados. Compila para WRTL 0.1 custom. [Manual](docs/track-forge.html).

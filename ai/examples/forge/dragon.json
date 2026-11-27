@@ -1,0 +1,12 @@
+{
+  "name": "Neon Dragon Forge",
+  "shape": "dragon",
+  "seed": 7000,
+  "size": 220,
+  "height": 70,
+  "waves": 4,
+  "twists": 2,
+  "width": 14,
+  "bank": 35,
+  "color": "purple"
+}

@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "shape": {
+      "enum": [
+        "ring",
+        "flower",
+        "figure8",
+        "star",
+        "dragon"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "size": {
+      "type": "number",
+      "minimum": 100,
+      "maximum": 350
+    },
+    "height": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 120
+    },
+    "waves": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "twists": {
+      "type": "integer",
+      "minimum": -3,
+      "maximum": 3
+    },
+    "width": {
+      "type": "number",
+      "minimum": 8,
+      "maximum": 30
+    },
+    "bank": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 65
+    },
+    "color": {
+      "enum": [
+        "red",
+        "cyan",
+        "blue",
+        "green",
+        "orange",
+        "purple",
+        "pink",
+        "yellow"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "shape",
+    "seed",
+    "size",
+    "height",
+    "waves",
+    "twists",
+    "width",
+    "bank",
+    "color"
+  ]
+}

@@ -16,3 +16,16 @@ $('forget-lessons').onclick=()=>{lessons=[];store('wmk.ai.lessons',lessons);coun
 $('prepare').onclick=()=>{activeCase=cases[$('case').value];$('prompt').value=activeCase.prompt;$('mode').value='preset';status('Teste preparado. Clique Gerar com IA.')};$('prompt').addEventListener('input',()=>activeCase=null);
 $('clear-log').onclick=()=>{$('log').textContent=''};
 for(const [id,cmd] of [['overview','overview'],['drive','drive'],['race','race'],['engine-panel','panel']])$(id).onclick=()=>{$('preview').contentWindow.postMessage({type:'wmk-control',cmd},location.origin);if(cmd==='drive'||cmd==='race')$('preview').focus()};
+
+const forgeStatus=s=>{$('forge-status').textContent=s;log(s)};
+let forgeLessons=load('wmk.forge.lessons',[]);if(!Array.isArray(forgeLessons))forgeLessons=[];
+$('recipe').value=JSON.stringify(WMKForge.example,null,2);
+function recipe(){return WMKForge.validate(JSON.parse($('recipe').value))}
+function buildForge(){const r=recipe(),track=WRTL.validate(WMKForge.compile(r));activeCase=null;warnings=[];$('json').value=JSON.stringify(track,null,2);apply();forgeStatus('Receita compilada: '+track.points.length+' pontos. Inspecione e pilote antes de aprovar.')}
+function forgeRun(fn){try{fn()}catch(e){forgeStatus('Falha: '+e.message)}}
+$('forge-build').onclick=()=>forgeRun(buildForge);
+$('forge-mutate').onclick=()=>forgeRun(()=>{const r=recipe();r.seed=(r.seed+1)%2147483648;$('recipe').value=JSON.stringify(r,null,2);buildForge()});
+$('forge-save').onclick=()=>forgeRun(()=>{const r=recipe(),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(r,null,2)],{type:'application/json'}));a.download='wmk-forge-recipe.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+$('forge-import').onchange=async e=>{try{const f=e.target.files[0];if(!f)return;if(f.size>16000)throw Error('Arquivo muito grande');const r=WMKForge.validate(JSON.parse(await f.text()));$('recipe').value=JSON.stringify(r,null,2);buildForge()}catch(err){forgeStatus(err.message)}};
+$('forge-teach').onclick=()=>forgeRun(()=>{const r=recipe();forgeLessons=[...forgeLessons,{prompt:$('prompt').value.slice(0,500),recipe:r}].slice(-5);if(!store('wmk.forge.lessons',forgeLessons))throw Error('Falha ao salvar');forgeStatus('Receita aprovada. '+forgeLessons.length+' exemplos locais.');});
+$('forge-ai').onclick=async()=>{const b=$('forge-ai');b.disabled=true;const start=performance.now();try{if(location.port!=='8768')throw Error('Abra o servidor Python na porta 8768');forgeStatus('Consultando IA com schema de receitas...');const r=await fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider:$('provider').value,model:$('model').value,prompt:$('prompt').value,mode:'forge',context:$('notes').value,examples:forgeLessons})});const raw=await r.text();let d;try{d=JSON.parse(raw)}catch{throw Error('HTTP '+r.status+' resposta inválida')}if(!r.ok)throw Error(d.error||'HTTP '+r.status);$('raw').textContent=JSON.stringify(d.track,null,2);$('metrics').textContent='Receita IA: '+((performance.now()-start)/1000).toFixed(2)+' s';$('recipe').value=JSON.stringify(d.track,null,2);buildForge()}catch(e){forgeStatus('Falha: '+e.message)}finally{b.disabled=false}};

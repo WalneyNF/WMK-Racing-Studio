@@ -1,0 +1,12 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WMK Track Forge</title><style>body{background:#0b1420;color:#e7f0fa;font:17px/1.65 system-ui;max-width:900px;margin:30px auto;padding:20px}a,h1,h2{color:#62dfff}pre{background:#07121f;padding:15px;overflow:auto}img{width:120px}</style><img src="../assets/logo/logo.webp" alt="WMK"><h1>Track Forge 0.1 — laboratório de receitas</h1><p>Compatível com WRTL 0.1. A receita não é uma pista importável diretamente: forge.js compila para custom XYZ. O contrato da WRTL permanece inalterado.</p><h2>Como usar</h2><ol><li>Execute python ai/server.py e abra http://127.0.0.1:8768/ai/.</li><li>Abra Track Forge na barra superior.</li><li>Clique Forjar pista para usar o exemplo, ou Nova variação para mudar a semente.</li><li>Edite a receita, compile e teste em Pilotar. Exporte o JSON WRTL no painel Projeto; Salvar receita guarda a origem procedural.</li><li>Para IA, selecione provedor/modelo no Projetista e escreva um pedido. Clique Projetar receita com IA na Forja.</li><li>Após testar, aprove a receita para incluir até cinco exemplos no contexto de próximas receitas.</li></ol><h2>Receita</h2><pre>{
+  "name": "Neon Dragon Forge",
+  "shape": "dragon",
+  "seed": 7000,
+  "size": 220,
+  "height": 70,
+  "waves": 4,
+  "twists": 2,
+  "width": 14,
+  "bank": 35,
+  "color": "purple"
+}</pre><p>O catálogo inclui ring, flower, star, dragon e figure8. Cada receita gera 120 pontos por funções trigonométricas e um gerador pseudoaleatório determinístico. A mesma receita produz os mesmos pontos. size controla a escala horizontal; height e waves controlam ondulações (figure8 tem fórmula própria); twists gira a normal; color usa nomes para evitar erros RGB. Consulte <a href="../ai/forge.schema.json">schema</a>.</p><h2>Exercícios</h2><p>Compare seeds 7000 e 7001; altere shape para flower; gere dragon com três torções; peça ao Qwen uma receita com cor orange e compare com Groq. Teste visualmente antes de aprovar. As receitas não são treinamento de pesos.</p><h2>Limitações</h2><p>Não é ainda WRTL modular; não gera loopings verticais explícitos, túneis, saltos ou encaixes de peças. A validação estrutural não assegura ausência de auto-interseções ou conforto de pilotagem. Testes gráficos e chamadas reais de IA pendentes. A separação vertical de figure8 é nominal, não uma garantia de colisão.</p><p>Walney Moreira Klein — walneyk@hotmail.com · MIT</p></html>
