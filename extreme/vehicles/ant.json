@@ -1,0 +1,9 @@
+{
+  "name": "Formiga Titã",
+  "type": "insect",
+  "category": "ant",
+  "top": 5,
+  "accel": 1.7,
+  "color": 11820325,
+  "glow": 11820325
+}

@@ -68,3 +68,6 @@ Forja procedural de receitas com cinco famílias, sementes, geração IA Ollama/
 
 ## v0.6.8 — Painéis e exemplos
 Painéis Extreme independentes e biblioteca integrada de 17 exemplos WRTL e cinco receitas Forge. [Manual](docs/panels-examples.html).
+
+## v0.6.9 — Racing Multiverse
+Categorias de competidores, quatro protótipos animados e quatro circuitos próprios. [Manual](docs/multiverse.html).

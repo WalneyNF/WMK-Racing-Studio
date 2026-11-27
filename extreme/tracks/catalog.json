@@ -17,5 +17,9 @@
   "moto-tube",
   "moto-wall",
   "moto-tunnel",
-  "moto-tower"
+  "moto-tower",
+  "race-cycle",
+  "race-runner",
+  "race-ant",
+  "race-robot"
 ]

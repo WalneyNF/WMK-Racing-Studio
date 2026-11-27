@@ -1,0 +1,9 @@
+{
+  "name": "Bicicleta Trail X",
+  "type": "bicycle",
+  "category": "cycle",
+  "top": 14,
+  "accel": 2.8,
+  "color": 2472447,
+  "glow": 2472447
+}

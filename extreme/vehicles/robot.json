@@ -1,0 +1,9 @@
+{
+  "name": "WMK Android R1",
+  "type": "robot",
+  "category": "robot",
+  "top": 16,
+  "accel": 3.5,
+  "color": 57533,
+  "glow": 57533
+}
