@@ -82,5 +82,37 @@
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "custom"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "points"
+        ]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "points"
+              ]
+            },
+            {
+              "required": [
+                "twists"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
