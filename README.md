@@ -32,3 +32,6 @@ HTML, CSS e JavaScript separados. Eventos da interface em `js/ui.js`; identidade
 [Arte de capa do Facebook](assets/logo/facebook.webp).
 
 O carregador lê os 37 presets JSON diretamente do disco via HTTP, sem duplicar a configuração dentro de `game.js`.
+
+## v0.6.0 experimental — Extreme Racing
+[Entrar no modo extremo](extreme/index.html) · [Manual técnico](docs/extreme-racing.html). Três pistas paramétricas, três veículos, looping de 360°, banking, pista côncava, turbo e corrida com bots. Física cinemática magnética separada do jogo clássico. Teste gráfico pendente.
